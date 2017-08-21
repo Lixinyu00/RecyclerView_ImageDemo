@@ -15,7 +15,6 @@ public class MainActivity extends AppCompatActivity {
     private SwipeRefreshLayout swipeRefreshlayout;
     private RecyclerAdapter myAdapter;
     private StaggeredGridLayoutManager myLayoutManager;
-    private String datas;
     private int lastVisibleItem;
     private int page = 1;
 
@@ -26,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         initViews();
         initListener();
         initDatas();
+        Log.e("13456", "onCreate: "+android.os.Process.myTid() );
     }
 
     private void initViews() {
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onRefresh() {
                 //do something you like
-                Log.e("456456", "onRefresh: " + datas);
+                swipeRefreshlayout.setRefreshing(false);
             }
         });
 
@@ -75,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
                 new VolleyUtil.VolleyCallBack() {
                     @Override
                     public void onSuccess(String result) {
-                        datas = result;
                         if (myAdapter == null) {
                             myAdapter = new RecyclerAdapter(getApplicationContext(), result);
                             myAdapter.setonRecyclerItemClickListener(new RecyclerAdapter.onRecyclerItemClickListener() {

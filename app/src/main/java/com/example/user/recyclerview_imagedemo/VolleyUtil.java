@@ -18,10 +18,6 @@ import org.json.JSONObject;
 
 public class VolleyUtil {
 
-    private String results;
-    private String result;
-
-
     public VolleyUtil(Context context, String url, final VolleyCallBack volleyCallBack){
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url, null,
@@ -29,7 +25,7 @@ public class VolleyUtil {
                     @Override
                     public void onResponse(JSONObject jsonObject) {
                         volleyCallBack.onSuccess(jsonObject.toString());
-                        Log.e("recycler", "onResponse: " + results);
+                        Log.e("recycler", "onResponse: " + android.os.Process.myTid());
                     }
                 }, new Response.ErrorListener() {
             @Override
