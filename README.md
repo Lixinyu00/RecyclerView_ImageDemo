@@ -1,6 +1,7 @@
 # RecyclerView_ImageDemo
-Recyclerview实现瀑布流图片显示，包含Volley、Glide用法
 本项目CSDN博客文章：http://blog.csdn.net/qq_30128497/article/details/77450939
+Recyclerview实现瀑布流图片显示，包含Volley、Glide用法
+
 ###RecyclerView简介：
 RecyclerView是一个像listview和GridView合体的View，功能比较强大，使用起来还比较简单。
 想具体学习RecyclerView的话可以到鸿洋大佬的博客中学习
